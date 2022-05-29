@@ -88,7 +88,7 @@ submit.addEventListener("click", (e) => {
   }
   if (!validate_reg_email(email)) {
     alert("First register yourself !!");
-    window.location = "/pages/registration.html";
+    window.location = "./pages/registration.html";
   } else {
     async function AddDocument_AutoID() {
       var ref = collection(db, "Appointments");
