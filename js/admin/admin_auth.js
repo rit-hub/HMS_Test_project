@@ -55,11 +55,12 @@ onAuthStateChanged(auth, (user) => {
     //
     //bla bla bla
     // ...
-  } else {
-    alert("You should login first!!!!");
-    window.location = "../registration.html";
-    // User is signed out
-    // ...
-    //bla bla bla
   }
+  // else {
+  //   alert("You should login first!!!!");
+  //   window.location = "../registration.html";
+  //   // User is signed out
+  //   // ...
+  //   //bla bla bla
+  // }
 });
