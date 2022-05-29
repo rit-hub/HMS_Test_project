@@ -17,11 +17,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="../../css/admin_access.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/admin.css" type="text/css" />
     <link rel="stylesheet" href="../../css/table2.css" />
     <title></title>
   </head>
   <body>
+    <script type="module" src="../js/auth.js"></script>
     <section>
       <div class="left-div">
         <br />
@@ -45,17 +46,17 @@
               ><i class="fa fa-user"></i> Doctors Control</a
             >
           </li>
-          <li class="">
+          <!-- <li class="">
             <a href="/pages/admin/admin_access.html"
               ><i class="fa fa-key"></i> Access Request</a
             >
-          </li>
+          </li> -->
           <li>
             <a href="/pages/admin/admin_appointments.html"
               ><i class="fa fa-desktop"></i> Appointments</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a href="/pages/admin/admin_settings.html"
               ><i class="fa fa-gear"></i> Settings</a
             >
@@ -64,9 +65,9 @@
             <a href="/pages/admin/admin_support.html"
               ><i class="fa fa-bullhorn"></i> Support</a
             >
-          </li>
+          </li> -->
           <li>
-            <a href=""><i class="fa fa-power-off"></i> Quit</a>
+            <a href="" id="logout"><i class="fa fa-power-off"></i> Quit</a>
           </li>
         </ul>
         <br /><br />
@@ -87,15 +88,7 @@
                   src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
                   class="pro-img"
                 />
-                <p>
-                  Manoj Adhikari
-                  <i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
-                </p>
-                <div class="profile-div">
-                  <p><i class="fa fa-user"></i> Profile</p>
-                  <p><i class="fa fa-cogs"></i> Settings</p>
-                  <p><i class="fa fa-power-off"></i> Log Out</p>
-                </div>
+                <p id="username"></p>
               </div>
             </div>
 
@@ -106,7 +99,15 @@
           <br /><br /><br />
 
           <div class="content-body">
-            <h3 style="color: gray">Coming Soon...</h3>
+            <table id="doctors-table" class="content-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -115,7 +116,8 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script type="module" src="../../js/admin/admin_auth.js"></script>
+    <script type="module" src="../../js/admin/admin_patient.js"></script>
     <script>
       $(document).ready(function () {
         $(".profile p").click(function () {

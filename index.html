@@ -26,7 +26,9 @@
       <nav class="navbar">
         <a href="#home">home</a>
         <a href="#book">book</a>
-        <a href="./pages/registration.html" style="color: #16a085">Login</a>
+        <a href="./pages/registration.html" style="color: #16a085"
+          >Register Now</a
+        >
       </nav>
 
       <div id="menu-btn" class="fas fa-bars"></div>
@@ -286,11 +288,24 @@
 
         <form action="">
           <h3>book appointment</h3>
-          <input type="text" placeholder="your name" class="box" />
-          <input type="number" placeholder="your number" class="box" />
-          <input type="email" placeholder="your email" class="box" />
-          <input type="date" class="box" />
-          <input type="submit" value="book now" class="btn" />
+          <input id="fname" type="text" placeholder="Your name" class="box" />
+          <input
+            id="number"
+            type="number"
+            placeholder="Your number"
+            class="box"
+          />
+          <input id="email" type="email" placeholder="Your email" class="box" />
+          <select id="doctors_list" class="box">
+            <option value="" disabled selected>Select your Doctor</option>
+            <!-- <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option> -->
+          </select>
+
+          <input id="date" type="date" class="box" />
+          <input id="submit" value="book now" class="btn" />
         </form>
       </div>
     </section>
@@ -488,5 +503,7 @@
 
     <!-- custom js file link  -->
     <script src="js/script.js"></script>
+    <script type="module" src="js/appointment_book.js"></script>
+    <!-- <script type="module" src="js/firebase.js"></script> -->
   </body>
 </html>

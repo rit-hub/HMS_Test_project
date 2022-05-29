@@ -22,6 +22,14 @@
     <!--<title>Login & Registration Form</title>-->
   </head>
   <body>
+    <script
+      src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js"
+      type="module"
+    ></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js"
+      type="module"
+    ></script>
     <header class="header">
       <a href="../index.html" class="logo">
         <i class="fas fa-heartbeat" style="color: rgb(102, 102, 250)"></i>
@@ -29,7 +37,7 @@
       </a>
 
       <nav class="navbar">
-        <a href="../pages/profile.html">Doctors</a>
+        <!-- <a href="../pages/profile.html">Doctors</a> -->
       </nav>
 
       <div id="menu-btn" class="fas fa-bars"></div>
@@ -40,13 +48,19 @@
         <div class="form login">
           <span class="title">Login</span>
 
-          <form action="#">
+          <form>
             <div class="input-field">
-              <input type="text" placeholder="Enter your email" required />
+              <input
+                id="login_email"
+                type="text"
+                placeholder="Enter your email"
+                required
+              />
               <i class="uil uil-envelope icon"></i>
             </div>
             <div class="input-field">
               <input
+                id="login_password"
                 type="password"
                 class="password"
                 placeholder="Enter your password"
@@ -58,15 +72,15 @@
 
             <div class="checkbox-text">
               <div class="checkbox-content">
-                <input type="checkbox" id="logCheck" />
-                <label for="logCheck" class="text">Remember me</label>
+                <!-- <input type="checkbox" id="logCheck" />
+                <label for="logCheck" class="text">Remember me</label> -->
               </div>
 
-              <a href="#" class="text">Forgot password?</a>
+              <!-- <a href="#" class="text">Forgot password?</a> -->
             </div>
 
             <div class="input-field button">
-              <input type="button" value="Login Now" />
+              <input id="signIn" type="button" value="Login Now" />
             </div>
           </form>
 
@@ -82,17 +96,28 @@
         <div class="form signup">
           <span class="title">Registration</span>
 
-          <form action="#">
+          <form>
             <div class="input-field">
-              <input type="text" placeholder="Enter your name" required />
+              <input
+                id="fname"
+                type="text"
+                placeholder="Enter your name"
+                required
+              />
               <i class="uil uil-user"></i>
             </div>
             <div class="input-field">
-              <input type="text" placeholder="Enter your email" required />
+              <input
+                id="email"
+                type="text"
+                placeholder="Enter your email"
+                required
+              />
               <i class="uil uil-envelope icon"></i>
             </div>
             <div class="input-field">
               <input
+                id="type"
                 type="text"
                 class=""
                 placeholder="Doctor / Patient"
@@ -102,6 +127,17 @@
             </div>
             <div class="input-field">
               <input
+                id="specialization"
+                type="text"
+                class=""
+                placeholder="Specialization"
+                required
+              />
+              <i class="uil uil-user"></i>
+            </div>
+            <div class="input-field">
+              <input
+                id="password"
                 type="password"
                 class="password"
                 placeholder="Create a password"
@@ -111,17 +147,8 @@
               <i class="uil uil-eye-slash showHidePw"></i>
             </div>
 
-            <div class="checkbox-text">
-              <div class="checkbox-content">
-                <input type="checkbox" id="sigCheck" />
-                <label for="sigCheck" class="text">Remember me</label>
-              </div>
-
-              <a href="#" class="text">Forgot password?</a>
-            </div>
-
             <div class="input-field button">
-              <input type="button" value="Sign Up" />
+              <input id="signUp" type="button" value="Sign Up" />
             </div>
           </form>
 
@@ -136,5 +163,7 @@
     </div>
 
     <script src="../js/registration.js"></script>
+
+    <script type="module" src="../js/auth.js"></script>
   </body>
 </html>

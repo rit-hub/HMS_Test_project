@@ -22,6 +22,7 @@
     <title></title>
   </head>
   <body>
+    <script type="module" src="../js/auth.js"></script>
     <section>
       <div class="left-div">
         <br />
@@ -45,17 +46,17 @@
               ><i class="fa fa-user"></i> Doctors Control</a
             >
           </li>
-          <li class="">
+          <!-- <li class="">
             <a href="/pages/admin/admin_access.html"
               ><i class="fa fa-key"></i> Access Request</a
             >
-          </li>
+          </li> -->
           <li>
             <a href="/pages/admin/admin_appointments.html"
               ><i class="fa fa-desktop"></i> Appointments</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a href="/pages/admin/admin_settings.html"
               ><i class="fa fa-gear"></i> Settings</a
             >
@@ -64,9 +65,9 @@
             <a href="/pages/admin/admin_support.html"
               ><i class="fa fa-bullhorn"></i> Support</a
             >
-          </li>
+          </li> -->
           <li>
-            <a href=""><i class="fa fa-power-off"></i> Quit</a>
+            <a href="" id="logout"><i class="fa fa-power-off"></i> Quit</a>
           </li>
         </ul>
         <br /><br />
@@ -87,15 +88,8 @@
                   src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_0.jpg"
                   class="pro-img"
                 />
-                <p>
-                  Manoj Adhikari
-                  <i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
-                </p>
-                <div class="profile-div">
-                  <p><i class="fa fa-user"></i> Profile</p>
-                  <p><i class="fa fa-cogs"></i> Settings</p>
-                  <p><i class="fa fa-power-off"></i> Log Out</p>
-                </div>
+                <p id="username"></p>
+                
               </div>
             </div>
 
@@ -109,11 +103,11 @@
             <table id="doctors-table" class="content-table">
               <thead>
                 <tr>
-                  <th>Sl. No.</th>
+                  
                   <th>Name</th>
-                  <th>Age</th>
+                  <th>Email</th>
                   <th>Specialization</th>
-                  <th>Gender</th>
+                 
                 </tr>
               </thead>
               <tbody></tbody>
@@ -126,7 +120,7 @@
     </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <script type="module" src="../../js/admin/admin_auth.js"></script>
     <script type="module" src="../../js/admin/admin_doctor.js"></script>
 
     <script>

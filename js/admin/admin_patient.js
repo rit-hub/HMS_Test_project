@@ -40,14 +40,14 @@ let arr_data = [];
 
 (async function getData() {
   //   var ref = doc(db, "appointments", "1");
-  const querySnapshot = await getDocs(collection(db, "Doctors"));
+  const querySnapshot = await getDocs(collection(db, "Patients"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     let orderManager = function (someone) {
       return {
         name: someone.name,
         email: someone.email,
-        specialization: someone.specialization,
+        
       };
     };
     console.log(doc.data());

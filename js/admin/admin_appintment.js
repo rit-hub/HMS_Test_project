@@ -6,15 +6,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBAfGLH8AJsm5chCqQ-PJZq2IL7rDOMNc4",
-  authDomain: "hms-demo-app.firebaseapp.com",
-  projectId: "hms-demo-app",
-  storageBucket: "hms-demo-app.appspot.com",
-  messagingSenderId: "227706250306",
-  appId: "1:227706250306:web:4ae7ba068b1128fdf6b9db",
-  measurementId: "G-1SYRG25Z58",
-};
+import { firebaseConfig } from "../firebase.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -35,12 +27,14 @@ import {
 
 const db = getFirestore();
 
-let Rank = document.getElementById("Rank");
-let Name = document.getElementById("Name");
+// let Rank = document.getElementById("Date");
+// let Name = document.getElementById("Name");
 
-let Doctor = document.getElementById("Doctor");
+// let Email = document.getElementById("Email");
 
-let Date = document.getElementById("Date");
+// let Number = document.getElementById("Number");
+
+// let Doctor = document.getElementById("Doctor");
 
 // adding docs
 
@@ -55,15 +49,16 @@ let arr_data = [];
 
 (async function getData() {
   //   var ref = doc(db, "appointments", "1");
-  const querySnapshot = await getDocs(collection(db, "appointments"));
+  const querySnapshot = await getDocs(collection(db, "Appointments"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     let orderManager = function (someone) {
       return {
-        rank: someone.Rank,
-        doctor: someone.Doctor,
-        name: someone.Name,
-        date: someone.Date,
+        date: someone.date,
+        name: someone.name,
+        email: someone.email,
+        number: someone.number,
+        doctor: someone.doctor,
       };
     };
     console.log(doc.data());
@@ -71,34 +66,37 @@ let arr_data = [];
     arr_data.push(data2);
   });
 
-  arr_data.forEach((emp, index) => {
-    let row = document.createElement("tr");
+  arr_data
+    .reverse()
+    .slice(0, 9)
+    .forEach((emp, index) => {
+      let row = document.createElement("tr");
 
-    Object.values(emp).forEach((text) => {
-      let cell = document.createElement("td");
-      let textNode = document.createTextNode(text);
-      cell.appendChild(textNode);
-      row.appendChild(cell);
+      Object.values(emp).forEach((text) => {
+        let cell = document.createElement("td");
+        let textNode = document.createTextNode(text);
+        cell.appendChild(textNode);
+        row.appendChild(cell);
+      });
+
+      table.appendChild(row);
+
+      if (index % 2 == 0) {
+        $(document).ready(function () {
+          $(row).css({
+            "background-color": "#f3f3f3",
+          });
+        });
+      }
+
+      if (index == arr_data.length - 1) {
+        $(document).ready(function () {
+          $(row).css({
+            "border-bottom": "2px solid #009879",
+          });
+        });
+      }
     });
-
-    table.appendChild(row);
-
-    if (index % 2 == 0) {
-      $(document).ready(function () {
-        $(row).css({
-          "background-color": "#f3f3f3",
-        });
-      });
-    }
-
-    if (index == arr_data.length - 1) {
-      $(document).ready(function () {
-        $(row).css({
-          "border-bottom": "2px solid #009879",
-        });
-      });
-    }
-  });
 
   myTable.appendChild(table);
 })();
