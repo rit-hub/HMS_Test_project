@@ -214,6 +214,13 @@ signIN.addEventListener("click", (e) => {
 
 // login and redirect
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    var uid = user.uid;
+    window.location = "./admin/admin_dashboard.html";
+  }
+});
+
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
 //     // User is signed in, see docs for a list of available properties
